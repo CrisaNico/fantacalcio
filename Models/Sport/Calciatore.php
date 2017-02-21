@@ -1,24 +1,28 @@
 <?php
+
+
 namespace Models\Sport;
 
 use Models\Table as Table;
 
-class Atleta extends Table {
-    
+
+class Calciatore extends Table {
     // Nome della tabella
-    const TABLE_NAME = "squadra";
+    const TABLE_NAME = "calciatore_vista";
     const BINDINGS = [
         //"nome_colonna"=>"nome_parametro",
         "id"=>"id",
-        "allenatore"=>"allenatore",
+        "nome"=>"nome",
+        "ruolo"=>"ruolo",
         "denominazione"=>"denominazione",
-        "datafondazione"=>"datafondazione"
+        "allenatore"=>"allenatore"
     ];
     
+    public $nome;
+    public $ruolo;
     public $allenatore;
     public $denominazione;
-    public $datafondazione;
-    protected $calciatori = array(); // array of ID
+    protected $squadra = array(); // array of ID
     
     public function __construct($id = 0, $params = []){
         
@@ -48,7 +52,7 @@ class Atleta extends Table {
     
     public function loadIscrizioni(){
         try{
-            $sql = "SELECT id FROM calciatore WHERE ".self::TABLE_NAME."_id = :id ORDER BY id";
+            $sql = "SELECT * FROM calciatore_vista";
             $stmt = self::$db->prepare($sql);
             if($stmt->execute([":id"=>$this->id])){
                 $this->iscrizioni = array_map(function($i){return $i['id'];}, $stmt->fetchAll());
@@ -61,7 +65,7 @@ class Atleta extends Table {
     public function storeIscrizioni(){
         try{
             // rimuovo quelle relazioni che non valgono piu
-            $sql = "UPDATE calciatore SET squadra_id = null WHERE id NOT IN (".
+            $sql = "UPDATE calciatore_vista SET squadra_id = null WHERE id NOT IN (".
                     join(", ",$this->iscrizioni).") AND squadra_id = :id";
             $stmt = self::$db->prepare($sql);
             $stmt->execute([":id"=>$this->id]);
