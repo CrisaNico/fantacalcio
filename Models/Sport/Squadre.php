@@ -43,7 +43,7 @@ class Squadre extends Table {
     
     public function save(){
         parent::save();
-        $this->storeIscrizioni();
+        //$this->storeIscrizioni();
     }
     
     public function loadIscrizioni(){
