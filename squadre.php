@@ -1,7 +1,7 @@
 <?php
 require_once "index.php";
 
-use Models\Sport\Atleta as Atleta;
+use Models\Sport\Squadre as Squadre;
 
 $id = ( isset($_GET['id']) ) ? $_GET['id'] : 0;
 $message = "";

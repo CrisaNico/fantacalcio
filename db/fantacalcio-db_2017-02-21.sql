@@ -73,7 +73,7 @@ INSERT INTO `calciatore` (`id`, `nome`, `ruolo`, `squadra_id`) VALUES
 (58, 'Adem Ljajic', 'Attaccante', 3),
 (59, 'Gianluigi Buffon', 'Portiere', 4),
 (60, 'Dani Alves', 'Difensore', 4),
-(61, 'Andrea Bonucci', 'Difensore', 4),
+(61, 'Leonardo Bonucci', 'Difensore', 4),
 (62, 'Daniele Rugani', 'Difensore', 4),
 (63, 'Sami Khedira', 'Centrocampista', 4),
 (64, 'Claudio Marchisio', 'Centrocampista', 4),

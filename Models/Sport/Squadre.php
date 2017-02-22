@@ -3,7 +3,7 @@ namespace Models\Sport;
 
 use Models\Table as Table;
 
-class Atleta extends Table {
+class Squadre extends Table {
     
     // Nome della tabella
     const TABLE_NAME = "squadra";
