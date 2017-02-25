@@ -28,3 +28,6 @@ if($id && empty($_REQUEST['act']))
     echo json_encode(["item" => $item, "message" => $message]);
 else
     echo json_encode(["items" => Squadre::getAll(), "message" => $message]);
+
+
+echo "ciao mondo";
